@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Exercise Two</title>
+   </head>
+   <body>
+      <div id="result"></div>
+      <script type="text/javascript">
+         var logger = {}	
+         function getLogs(level, color){
+         	logger.level = level;
+         	logger.color = color;
+         	logger.info = 'undefined';
+            return function getMessage(message){
+               //Depending on what the level and color were set as arguements for the function, the getMessage function will change logger.info to the message that would match the level and color. 
+               var textnode = document.createTextNode(logger);    
+               document.getElementById("result").appendChild(textnode)
+            }
+         }
+         getLogs('warning', 'red');
+         getLogs('debug', 'green');
+         getLogs('new', 'blue');
+      </script>
+   </body>
+</html>
